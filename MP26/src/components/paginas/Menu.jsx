@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+
 
 function Menu() {
     return (
@@ -8,7 +8,10 @@ function Menu() {
                 <h2>Tecnica de Informatica</h2>
             </div>
             <div>
-                <Link to="/">Me contate</Link>
+                <span>Me Contate (Acordion)</span>
+                <span>Ao Clicar No Botao Acima Seguintes Informacoes Aparecerao</span>
+                <span>Email de Contato:######@gmail.com</span>
+                <span>Telefone: #####-#####</span>
             </div>
         </>
     )
