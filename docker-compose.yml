@@ -1,0 +1,16 @@
+name: mp26
+
+services: 
+  app:
+    image: mp26-image
+    container_name: mp26-container
+    build: .
+    ports:
+      - "5175:5175"
+    volumes:
+      - ./MP26:/MP26 
+      - mp26-volume:/MP26/node_modules
+
+volumes: 
+  mp26-volume:
+    name: mp26-volume

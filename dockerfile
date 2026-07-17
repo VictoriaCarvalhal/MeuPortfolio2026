@@ -1,0 +1,13 @@
+FROM node:22-alpine
+
+WORKDIR /MP26
+
+COPY MP26 . 
+COPY entrypoint.sh /entrypoint.sh
+
+RUN chmod +x /entrypoint.sh 
+RUN npm install 
+
+EXPOSE 5175 
+
+ENTRYPOINT ["/entrypoint.sh"]
