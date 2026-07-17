@@ -2,14 +2,14 @@ import CardProjeto from "./projetos/cardProjeto"
 
 function Projetos() {
     return (
-        <>
-            <div>
-                <h1>Meus Projetos</h1>
+        <section className="page-section">
+            <h1 className="page-title">Meus Projetos</h1>
+            <div className="pink-line"></div>
+
+            <div className="projetos-grid">
+                <CardProjeto />
             </div>
-            <div>
-                <CardProjeto/>
-            </div>
-        </>
+        </section>
     )
 }
 

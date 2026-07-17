@@ -1,17 +1,19 @@
 
 function Sobre() {
     return (
-        <>
-            <div>
-                <h1>Sobre mim</h1>
+        <section className="page-section">
+            <h1 className="page-title">Sobre mim</h1>
+            <div className="pink-line"></div>
+
+            <div className="sobre-content">
+                <div className="sobre-image-placeholder">
+                    Minha Imagem
+                </div>
+                <p className="sobre-text">
+                    Texto, Texto, Texto sobre mim
+                </p>
             </div>
-            <div>
-                <span>Minha Imagem</span>
-            </div>
-            <div>
-                Texto, Texto, Texto sobre mim
-            </div>
-        </>
+        </section>
     )
 }
 

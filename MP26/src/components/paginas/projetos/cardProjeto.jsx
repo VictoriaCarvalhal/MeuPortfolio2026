@@ -1,12 +1,12 @@
 function CardProjeto() {
     return (
-        <>
-            <div>
-                <span>Nome Projeto</span>
-                <span>Imagem da tela do projeto</span>
-                <span>Descrição</span>
+        <div className="card-projeto">
+            <h3 className="card-projeto-nome">Nome Projeto</h3>
+            <div className="card-projeto-imagem">
+                Imagem da tela do projeto
             </div>
-        </>
+            <p className="card-projeto-descricao">Descrição</p>
+        </div>
     )
 }
 

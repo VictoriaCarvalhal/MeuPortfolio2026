@@ -1,111 +1,501 @@
+/* ================================
+   IMPORTAÇÃO DE FONTES
+   ================================ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap');
+
+/* ================================
+   CONFIGURAÇÕES GLOBAIS E VARIÁVEIS
+   ================================ */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
-
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+    --bg-color: #121212;
+    --sidebar-bg: #0a0a0a;
+    --pink-accent: #f2308c;
+    --text-white: #e0e0e0;
+    --text-gray: #888888;
+    --code-color: #444444;
+    --card-bg: #1a1a1a;
+    --card-border: #2a2a2a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+/* ================================
+   CONTAINER PRINCIPAL
+   ================================ */
+.container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+/* ================================
+   BARRA LATERAL (SIDEBAR)
+   ================================ */
+.sidebar {
+    width: 260px;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--sidebar-bg);
+    border-right: 3px solid var(--pink-accent);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 40px 0;
+    z-index: 10;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+.logo-section {
+    text-align: center;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.logo-v {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-style: italic;
+    font-weight: 700;
+    color: var(--pink-accent);
+    margin-bottom: 10px;
+    line-height: 1;
+    transition: text-shadow 0.3s ease;
+}
+
+.logo-v:hover {
+    text-shadow: 0 0 20px rgba(242, 48, 140, 0.5);
+}
+
+.sidebar-name {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.sidebar-title {
+    font-size: 0.8rem;
+    color: var(--text-gray);
+}
+
+.menu ul {
+    list-style: none;
+    text-align: center;
+}
+
+.menu ul li {
+    margin: 25px 0;
+}
+
+.menu ul li a {
+    color: var(--pink-accent);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+    position: relative;
+}
+
+.menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+.menu ul li a:hover {
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.menu ul li a:hover::after {
+    width: 100%;
+}
+
+.social-section {
+    text-align: center;
+    background-color: #1a1a1a;
+    padding: 20px 0;
+    margin-bottom: -40px;
+}
+
+.social-section p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: var(--pink-accent);
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: #fff;
+}
+
+/* ================================
+   CONTEÚDO PRINCIPAL (MAIN)
+   ================================ */
+.content {
+    flex: 1;
+    margin-left: 260px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Elementos Decorativos de Fundo (Tags HTML) */
+.bg-code {
+    position: absolute;
+    font-family: 'Fira Code', monospace;
+    color: var(--code-color);
+    font-size: 1.2rem;
+    opacity: 0.5;
+    z-index: 1;
+    user-select: none;
+    pointer-events: none;
+}
+
+.code-html { top: 5%; left: 5%; }
+.code-body { top: 11%; left: 8%; }
+.code-h1-open { top: 25%; left: 12%; }
+.code-h1-close { top: 55%; right: 25%; }
+.code-p-close { bottom: 30%; left: 10%; }
+.code-body-close { bottom: 12%; left: 8%; }
+
+/* Decorações dos Cantos */
+.scroll-down {
+    position: absolute;
+    bottom: 80px;
+    left: 40px;
+    color: var(--pink-accent);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    transform: rotate(-90deg);
+    transform-origin: left bottom;
+    letter-spacing: 1px;
+}
+
+.star-shape {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    color: var(--code-color);
+    font-size: 2.5rem;
+}
+
+/* ================================
+   HERO SECTION (Página Inicial)
+   ================================ */
+.hero {
+    position: relative;
+    z-index: 5;
+    max-width: 800px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.greeting {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--pink-accent);
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.main-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--pink-accent);
+    font-weight: 400;
+}
+
+.pink-line {
+    height: 3px;
+    width: 100%;
+    background-color: var(--pink-accent);
+    margin: 10px 0 15px 0;
+    background: linear-gradient(90deg, var(--pink-accent), transparent);
+}
+
+.main-title {
+    font-size: 1.8rem;
+    color: var(--text-white);
+    margin-bottom: 40px;
+}
+
+/* Botão "Me contate" */
+.contact-btn {
+    display: inline-block;
+    border: 3px solid var(--pink-accent);
+    color: var(--pink-accent);
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: 2rem;
+    padding: 10px 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: transparent;
+}
+
+.contact-btn:hover {
+    background-color: var(--pink-accent);
+    color: var(--bg-color);
+    box-shadow: 0 0 25px rgba(242, 48, 140, 0.4);
+}
+
+/* Info de contato (acordeão) */
+.contact-info {
+    margin-top: 20px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.4s ease, margin-top 0.4s ease;
+}
+
+.contact-info.open {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 25px;
+}
+
+.contact-info span {
+    display: block;
+    font-size: 1rem;
+    color: var(--text-gray);
+    margin-bottom: 8px;
+    padding-left: 5px;
+    border-left: 2px solid var(--pink-accent);
+    padding: 4px 0 4px 12px;
+}
+
+/* ================================
+   PÁGINAS INTERNAS (Sobre, Projetos)
+   ================================ */
+.page-section {
+    position: relative;
+    z-index: 5;
+    max-width: 800px;
+    width: 100%;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--pink-accent);
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    margin-bottom: 30px;
+}
+
+/* ================================
+   PÁGINA SOBRE
+   ================================ */
+.sobre-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.sobre-image-placeholder {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid var(--pink-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    background-color: var(--card-bg);
+    margin-bottom: 10px;
+}
+
+.sobre-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-gray);
+}
+
+/* ================================
+   PÁGINA PROJETOS
+   ================================ */
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    margin-top: 10px;
+}
+
+/* ================================
+   CARD DE PROJETO
+   ================================ */
+.card-projeto {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 25px;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-projeto:hover {
+    transform: translateY(-5px);
+    border-color: var(--pink-accent);
+    box-shadow: 0 8px 30px rgba(242, 48, 140, 0.15);
+}
+
+.card-projeto-nome {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--pink-accent);
+    margin-bottom: 12px;
+}
+
+.card-projeto-imagem {
+    width: 100%;
+    height: 160px;
+    background-color: #222;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    border: 1px solid var(--card-border);
+}
+
+.card-projeto-descricao {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+/* ================================
+   ANIMAÇÕES
+   ================================ */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================================
+   RESPONSIVIDADE
+   ================================ */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .content {
+        margin-left: 200px;
+        padding-left: 5%;
+    }
+
+    .logo-v {
+        font-size: 3rem;
+    }
+
+    .greeting,
+    .main-name {
+        font-size: 2.5rem;
+    }
+
+    .main-title {
+        font-size: 1.3rem;
+    }
+
+    .contact-btn {
+        font-size: 1.5rem;
+    }
+
+    .page-title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 60px;
+        padding: 20px 0;
+    }
+
+    .sidebar-name,
+    .sidebar-title,
+    .menu ul li a,
+    .social-section p {
+        display: none;
+    }
+
+    .logo-v {
+        font-size: 2rem;
+    }
+
+    .social-icons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .content {
+        margin-left: 60px;
+        padding: 20px;
+    }
+
+    .greeting,
+    .main-name {
+        font-size: 2rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .projetos-grid {
+        grid-template-columns: 1fr;
+    }
 }
